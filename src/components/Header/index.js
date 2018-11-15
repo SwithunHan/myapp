@@ -1,6 +1,6 @@
 import React, {Component} from 'react'
 import {Link} from 'react-router-dom'
-import './style.less'
+import './style.scss'
 import vue from '../../static/images/logo.png'
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome'
 import {faSearch} from '@fortawesome/free-solid-svg-icons'
@@ -18,7 +18,7 @@ class Header extends Component {
                 <Link to="/search">
                     <span className="search">
                         <FontAwesomeIcon icon={faSearch} color={"#fff"} size={"sm"} className={"searchIcon"}/>
-                        查找商品
+                        寻找宝贝店铺
                     </span>
                 </Link>
             </div>

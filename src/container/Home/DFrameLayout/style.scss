@@ -1,0 +1,21 @@
+@function px2rem($px) {
+  @return $px / 375px * 10rem;
+}
+
+.DFrameLayout {
+  position: relative;
+  height: px2rem(60px);
+  padding-left: px2rem(58px);
+  border-bottom: 10px solid #f4f4f4;
+  .image-view {
+    position: absolute;
+    width: px2rem(35px);
+    height: px2rem(35px);
+    margin-left: px2rem(12px);
+    margin-top: px2rem(12.5px);
+    left: 0;
+    top: 0;
+    background: url("https://gw.alicdn.com//tfs//TB1TBEMXU6FK1Jjy1XdXXblkXXa-105-107.png_.webp") no-repeat;
+    background-size: cover;
+  }
+}

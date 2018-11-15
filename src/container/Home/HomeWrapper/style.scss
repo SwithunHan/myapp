@@ -1,0 +1,39 @@
+@function px2rem($px){
+  @return $px / 375px * 10rem;
+}
+.HomeWrapper{
+  position: relative;
+  height: px2rem(160px);
+  margin-top: -10px;
+  z-index: 1111;
+  .banner{
+    display: flex;
+    box-sizing: border-box;
+    width: 10rem;
+    padding:0 px2rem(10px);
+    flex-wrap:wrap;
+    justify-content: space-between;
+    li{
+      width: px2rem(61px);
+      height: px2rem(67px);
+      margin-top: px2rem(4px);
+      text-align: center;
+      a{
+        display: block;
+        font-size: 0;
+      }
+      span{
+        display: inline-block;
+        width: px2rem(61px);
+        height: px2rem(48px);
+        background-size: 100%;
+      }
+      p{
+        margin-top: px2rem(5px);
+        font-size: px2rem(11px);
+        line-height: px2rem(14px);
+        color: #666666;
+      }
+    }
+  }
+}

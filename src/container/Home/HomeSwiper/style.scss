@@ -1,0 +1,18 @@
+
+.swiper-slide {
+  position: relative;
+  height: 120px;
+  margin-top: 0.98667rem;
+  background-repeat: no-repeat;
+  background-size: 100%;
+  & a{
+    position: absolute;
+    left: 0;
+    top: 0;
+    right: 0;
+    bottom: 0;
+  }
+}
+.swiper-pagination-bullet-active{
+  background: #ff5000;
+}

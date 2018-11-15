@@ -1,12 +1,18 @@
+@function px2rem($px){
+  @return $px / 375px * 10rem;
+}
 .Header{
+  position: fixed;
   display: flex;
   align-items: center;
-  height: 37px;
+  width: 10rem;
+  height: px2rem(37px);
   background: #ff852a;
+  z-index: 1000;
   .logo{
     display: inline-block;
     width: 27px;
-    height: 27px;
+    height: 20px;
     margin: 0 7px;
   }
   a{
@@ -17,7 +23,7 @@
     flex: 1;
     text-decoration: none;
     line-height: 25px;
-    font-size: 15px;
+    font-size: 13px;
 
     .search{
       display: inline-block;

@@ -1,40 +1,29 @@
 import React, {Component} from 'react';
-import './App.css';
+import './App.scss';
 import {BrowserRouter as Router, Route, Switch} from "react-router-dom";
-import Header from '../components/Header'
-import NotFound from './NotFound';
-import { library } from '@fortawesome/fontawesome-svg-core'
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faStroopwafel } from '@fortawesome/free-solid-svg-icons'
-
+import {library} from '@fortawesome/fontawesome-svg-core'
+import {faStroopwafel} from '@fortawesome/free-solid-svg-icons'
+import Home from "./Home";
+import NotFound from "./404/NotFound"
 library.add(faStroopwafel)
-
-const Home = () => <h2>Home</h2>;
-const About = () => <h2>About</h2>;
-
 
 class App extends Component {
     constructor(props) {
         super(props);
-        this.state = {
-
-        }
+        this.state = {}
     }
 
     render() {
         return (
             <Router>
-                <div>
-                    <Header/>
-                    {/*<Switch>*/}
-                        {/*<Route path="/" exact component={Home}/>*/}
-                        {/*<Route path="/about" component={About}/>*/}
-                        {/*<Route component={NotFound}/>*/}
-                    {/*</Switch>*/}
-                </div>
+                    <Switch>
+                        <Route exact path="/" component={Home}/>
+                        <Route path="*" component={NotFound}/>
+                    </Switch>
             </Router>
         );
     }
+
 }
 
 export default App;
