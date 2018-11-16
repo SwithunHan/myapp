@@ -1,5 +1,4 @@
-module.exports = {
-    bannerList: [
+module.exports = [
         {
             id: 1,
             href: "",
@@ -56,4 +55,3 @@ module.exports = {
 
 
     ]
-}

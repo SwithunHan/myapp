@@ -1,6 +1,6 @@
 import React, {Component} from 'react'
 import Goods from "./Goods/index";
-import {host} from "../../Host/index";
+import {host} from "../../api/index";
 
 class GoodsList extends Component {
     constructor(props) {

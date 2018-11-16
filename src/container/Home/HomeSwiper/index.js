@@ -2,7 +2,7 @@ import React, {Component} from 'react'
 import Swiper from 'swiper/dist/js/swiper.js'
 import 'swiper/dist/css/swiper.min.css'
 import './style.scss'
-import {host} from "../../../Host/index";
+import {getbannerimg} from "../../../api/index";
 
 class HomeSwiper extends Component {
     constructor(props) {
@@ -30,15 +30,11 @@ class HomeSwiper extends Component {
     }
 
     componentDidMount() {
-        fetch(`${host}/getbannerimg`).then((res) => {
-            return res.json()
-        }).then((data) => {
+        getbannerimg().then((bannerImg)=>{
             this.setState({
-                bannerImg: data.bannerImg
+                bannerImg
             })
-
-        })
-
+        });
     }
     componentDidUpdate(){
         if(this.swiper){

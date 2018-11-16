@@ -1,5 +1,4 @@
-module.exports = {
-    bannerImg: [
+module.exports = [
         {
             id: 1,
             href: "",
@@ -21,4 +20,3 @@ module.exports = {
             src: "http://img.alicdn.com/imgextra/i1/13/O1CN011BxzbpUcHnjYYCu_!!13-0-luban.jpg"
         },
     ]
-}

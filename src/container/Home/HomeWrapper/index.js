@@ -1,6 +1,6 @@
 import React, {Component} from 'react'
 import "./style.scss"
-import {host} from "../../../Host";
+import {getbannerlist} from "../../../api";
 
 class HomeWrapper extends Component {
     constructor(props) {
@@ -37,11 +37,9 @@ class HomeWrapper extends Component {
     }
 
     componentWillMount() {
-        fetch(`${host}/getbannerlist`).then((res) => {
-            return res.json()
-        }).then((data) => {
+        getbannerlist().then((bannerList)=>{
             this.setState({
-                bannerList:data.bannerList
+                bannerList
             })
         })
     }

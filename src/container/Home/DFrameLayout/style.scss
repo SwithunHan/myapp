@@ -18,4 +18,17 @@
     background: url("https://gw.alicdn.com//tfs//TB1TBEMXU6FK1Jjy1XdXXblkXXa-105-107.png_.webp") no-repeat;
     background-size: cover;
   }
+  .info-box {
+    width:px2rem(232px);
+    .info{
+      display: flex;
+      height: px2rem(60px);
+      flex-direction: column;
+    }
+    .info-name{
+    }
+    span{
+      font-size: px2rem(12px);
+    }
+  }
 }
