@@ -39,10 +39,14 @@
     "jest-pnp-resolver": "1.0.1",
     "jest-resolve": "23.6.0",
     "koa": "^2.6.2",
+    "koa-body": "^4.0.4",
+    "koa-bodyparser": "^3.2.0",
     "koa-route": "^3.2.0",
     "koa2-cors": "^2.0.6",
     "mini-css-extract-plugin": "0.4.3",
+    "mobx": "^5.6.0",
     "optimize-css-assets-webpack-plugin": "5.0.1",
+    "pm2": "^3.2.2",
     "pnp-webpack-plugin": "1.1.0",
     "postcss-flexbugs-fixes": "4.1.0",
     "postcss-loader": "3.0.0",
@@ -69,10 +73,16 @@
   "scripts": {
     "start": "node scripts/start.js",
     "build": "node scripts/build.js",
-    "test": "node scripts/test.js"
+    "test": "node scripts/test.js",
+    "server": "pm2 start server/index.js --watch"
   },
   "eslintConfig": {
-    "extends": "react-app"
+    "extends": "react-app",
+    "rules": {
+      "no-undef": "off",
+      "no-restricted-globals": "off",
+      "no-unused-vars": "off"
+    }
   },
   "browserslist": [
     ">0.2%",

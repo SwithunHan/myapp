@@ -1,6 +1,7 @@
 import React, {Component} from 'react'
 // import Swiper from 'swiper/dist/js/swiper.js'
 import 'swiper/dist/css/swiper.min.css'
+import 'swiper/dist/css/swiper.min.css'
 import {getdframeinfo} from '../../../api'
 import './style.scss'
 
@@ -19,21 +20,27 @@ class DFrameLayout extends Component {
                 <div className="info-swiper">
                     {
                         this.state.dframeList.map((item) => (
-                            <div key={item.id} className="info-box">
+                            <div key={item.id} className="info-box swiper-slide">
                                 <a href={item.url} className="info">
                                     {
-                                        item.info.map((text)=>(
+                                        item.info.map((text) => (
                                             <div className="info-name" key={text.id}>
                                                 <span className="info-type">{text.type}</span>
-                                                <span>{text.text}</span>
+                                                <p className="info-text">{text.text}</p>
                                             </div>
                                         ))
                                     }
                                 </a>
-                                <div style={{background: `url:('${item.imgURL}')`}}/>
-                                <div className="left-shadow" style={{background:"url:('http://gw.alicdn.com/mt/TB1tzxrrTtYBeNjy1XdXXXXyVXa-390-255.png')"}}/>
+                                <div className="right-img">
+                                    <div style={{
+                                        backgroundImage: `url(${item.imgURL})`,
+                                        backgroundSize:"cover",
+                                        width: "100%",
+                                        height: "100%"
+                                    }}/>
+                                    <div className="left-shadow"></div>
+                                </div>
                             </div>
-
                         ))
                     }
                 </div>
@@ -43,12 +50,12 @@ class DFrameLayout extends Component {
 
     componentDidMount() {
         try {
-            getdframeinfo().then((dframeList)=>{
+            getdframeinfo().then((dframeList) => {
                 this.setState({
                     dframeList
                 })
             })
-        }catch (e) {
+        } catch (e) {
             console.log(e);
         }
 

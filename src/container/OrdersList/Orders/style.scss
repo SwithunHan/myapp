@@ -1,0 +1,12 @@
+@function px2rem($px) {
+  @return $px / 375px * 10rem;
+}
+.Order{
+  background: #f6f6f6;
+  margin: px2rem(10px) 0;
+  padding: px2rem(10px);
+  img{
+    width: px2rem(150px);
+    border-radius: px2rem(4px);
+  }
+}

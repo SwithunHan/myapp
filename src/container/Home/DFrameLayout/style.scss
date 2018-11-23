@@ -18,17 +18,65 @@
     background: url("https://gw.alicdn.com//tfs//TB1TBEMXU6FK1Jjy1XdXXblkXXa-105-107.png_.webp") no-repeat;
     background-size: cover;
   }
+  .info-swiper {
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+  }
   .info-box {
-    width:px2rem(232px);
-    .info{
+    display: flex;
+    height: px2rem(60px);
+    &.swiper-slide {
+      margin: 0;
+      position: static;
+    }
+    .info {
+      flex: 1;
+      position: static;
       display: flex;
-      height: px2rem(60px);
       flex-direction: column;
-    }
-    .info-name{
-    }
-    span{
+      justify-content: center;
       font-size: px2rem(12px);
+      min-width: 0px;
+      .info-name {
+        display: flex;
+        flex-direction: row;
+        line-height: px2rem(19px);
+        color: #333;
+        .info-type {
+          display: flex;
+          width: px2rem(28px);
+          height: px2rem(13px);
+          font-size: px2rem(10.5px);
+          -webkit-box-align: center;
+          align-items: center;
+          -webkit-box-pack: center;
+          justify-content: center;
+          color: rgb(230, 10, 31);
+          border: 1px solid rgb(230, 10, 31);
+          border-radius: 3px;
+          margin-right: 4px;
+        }
+        .info-text {
+          text-overflow: ellipsis;
+          white-space: nowrap;
+          overflow: hidden;
+        }
+      }
+    }
+    .right-img {
+      position: relative;
+      width: px2rem(85px);
+      height: 100%;
+      .left-shadow {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        left: 0;
+        top: 0;
+        background-size: cover;
+        background: url('//gw.alicdn.com/mt/TB1tzxrrTtYBeNjy1XdXXXXyVXa-390-255.png') no-repeat center center;
+      }
     }
   }
 }
