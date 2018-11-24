@@ -35,7 +35,7 @@ class FooterNav extends Component {
                     id: 3,
                     text: "订单列表",
                     icon: faClipboardList,
-                    url: "/orderList"
+                    url: "/orders"
                 },
                 {
                     id: 4,
