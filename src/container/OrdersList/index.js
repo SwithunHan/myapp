@@ -2,6 +2,8 @@ import React, {Component} from 'react'
 import Order from "./Orders";
 import "./style.scss"
 import {getOrderList} from "../../api"
+import {observer} from "mobx-react"
+@observer
 class OrderList extends Component {
     constructor(props) {
         super(props);
