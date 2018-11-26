@@ -1,4 +1,7 @@
 import React, {Component} from 'react'
+import {inject,observer} from "mobx-react"
+@inject("loginStore")
+@observer
 class Person extends Component {
     constructor(props) {
         super(props);
@@ -7,7 +10,7 @@ class Person extends Component {
     render() {
         return (
             <div className='Person'>
-                <h1>个人中心</h1>
+                <h1>{"username：" + this.props.loginStore.username}</h1>
             </div>
         )
     }

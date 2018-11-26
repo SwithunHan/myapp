@@ -3,8 +3,14 @@ import ReactDOM from 'react-dom';
 import App from "./container/App";
 import "amfe-flexible"
 import 'reset-css'
+import loginStore from './stores/loginStore'
+import {Provider} from "mobx-react";
+
+const stores = {loginStore};
 ReactDOM.render(
-    <App/>,
+    <Provider {...stores}>
+        <App/>
+    </Provider>,
     document.getElementById('root')
 );
 

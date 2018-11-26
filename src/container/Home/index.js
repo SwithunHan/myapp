@@ -4,7 +4,8 @@ import FooterNav from "../../components/FooterNav";
 import HomeWrapper from './HomeWrapper'
 import HomeSwiper from "./HomeSwiper";
 import DFrameLayout from "./DFrameLayout";
-
+import {observer} from "mobx-react"
+@observer
 class Home extends Component {
 
     render() {

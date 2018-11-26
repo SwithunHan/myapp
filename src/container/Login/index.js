@@ -2,6 +2,9 @@ import React, {Component} from 'react'
 import './style.scss'
 import {authLogin} from "../../api"
 import {setItem} from "../../utils/LocalStorage"
+import {inject,observer} from "mobx-react"
+@inject("loginStore")
+@observer
 class Login extends Component {
     constructor(props) {
         super(props);
@@ -20,6 +23,12 @@ class Login extends Component {
             password:event.target.value
         })
     };
+    isLogin = ()=>{
+        this.props.loginStore.login();
+    };
+    setUserinfo =(val)=>{
+        this.props.loginStore.setUserinfo(val)
+    };
     login = ()=>{
         try {
             authLogin({
@@ -29,7 +38,12 @@ class Login extends Component {
                 if(json.status){
                     setItem("username",this.state.username);
                     setItem("password",this.state.password);
+                    this.setUserinfo(this.state.username);
+                    setItem("islogin",true);
+                    this.isLogin();
                     history.back()
+                }else{
+                    alert("用户名密码错误请重新填写")
                 }
             })
         }catch (e) {

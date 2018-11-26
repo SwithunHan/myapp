@@ -28,7 +28,7 @@ export async function getbannerimg() {
     }
 }
 // 验证登录
-export async function authLogin(username) {
+export async function authLogin(userinfo) {
     try {
         const res = await fetch(`${host}/api/login`,{
             method: 'POST',
@@ -36,7 +36,7 @@ export async function authLogin(username) {
             headers: {
                 'Content-Type': 'application/json'
             },
-            body: JSON.stringify(username)
+            body: JSON.stringify(userinfo)
         });
         return await res.json();
     } catch (e) {
