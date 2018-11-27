@@ -29,6 +29,9 @@ class Login extends Component {
     setUserinfo =(val)=>{
         this.props.loginStore.setUserinfo(val)
     };
+    setToken = (val) => {
+        this.props.loginStore.setToken(val);
+    }
     login = ()=>{
         try {
             authLogin({
@@ -37,10 +40,11 @@ class Login extends Component {
             }).then((json)=>{
                 if(json.status){
                     setItem("username",this.state.username);
-                    setItem("password",this.state.password);
-                    this.setUserinfo(this.state.username);
                     setItem("islogin",true);
+                    setItem("token",json.token);
+                    this.setUserinfo(this.state.username);
                     this.isLogin();
+                    this.setToken(json.token);
                     history.back()
                 }else{
                     alert("用户名密码错误请重新填写")
