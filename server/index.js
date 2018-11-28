@@ -7,6 +7,13 @@ const swipers = require("./Home/swipers");
 const dframes = require("./Home/dframes");
 const orders = require("./order/orders");
 const koaBody = require('koa-body');
+const jwt = require('jsonwebtoken');
+const util = require("util");
+
+const verify = util.promisify(jwt.verify);
+const verifyJWT = (token, key) => {
+    return verify(token.split(' ')[1], key)
+}
 // 使用ctx.body解析中间件
 app.use(koaBody());
 
@@ -29,15 +36,25 @@ app.use(route.post("/api/login", (ctx) => {
     const {username, password} = ctx.request.body;
     console.log(ctx.request.body);
     if (username === "han" && password === "123456") {
+        const token = jwt.sign({
+            name: username,
+            _id: 1
+        }, 'my_token', {expiresIn: '2h'});
         ctx.body = {
             mes: "success",
-            status:true
+            status: true,
+            token: token
         }
-    }else{
+
+    } else {
         ctx.body = {
-            mes:"fail",
-            status:false
+            mes: "fail",
+            status: false,
+            token: null
         }
     }
 }));
+app.use(route.get("/api/person/info", (ctx) => {
+
+}))
 app.listen(8000);

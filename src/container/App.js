@@ -9,11 +9,11 @@ import Person from "./Person";
 import OrderList from "./OrdersList";
 import CheckLogin from "../components/Hoc/CheckLogin"
 import OrderDes from "./OrderDes";
-import {inject,observer} from "mobx-react"
-import {authLogin} from "../api"
-import {getItem, setItem} from "../utils/LocalStorage";
+import {inject, observer} from "mobx-react"
+import {getItem} from "../utils/LocalStorage";
 
 library.add(faStroopwafel);
+
 @inject("loginStore")
 @observer
 class App extends Component {
@@ -24,16 +24,16 @@ class App extends Component {
 
     render() {
         return (
-                <Router>
-                    <Switch>
-                        <Route exact path="/" component={Home}/>
-                        <Route path="/login" component={Login}/>
-                        <CheckLogin path="/person" component={Person} isLogin={this.props.loginStore.isLogin}/>
-                        <Route path="/orders" component={OrderList}/>
-                        <Route path="/order/:id" component={OrderDes}/>
-                        <Route path="*" component={NotFound}/>
-                    </Switch>
-                </Router>
+            <Router>
+                <Switch>
+                    <Route exact path="/" component={Home}/>
+                    <Route path="/login" component={Login}/>
+                    <CheckLogin path="/person" component={Person} isLogin={getItem("islogin")}/>
+                    <Route path="/orders" component={OrderList}/>
+                    <Route path="/order/:id" component={OrderDes}/>
+                    <Route path="*" component={NotFound}/>
+                </Switch>
+            </Router>
         );
     }
 

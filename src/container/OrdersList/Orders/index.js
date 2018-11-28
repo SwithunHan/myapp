@@ -9,7 +9,7 @@ class Order extends Component {
 
     render() {
         return (
-            <Link to={`/order/${this.props.order.id}`}>
+            <Link to={`/order/${this.props.order.id}`} target="_blank">
                 <div className='Order'>
                     <img src={this.props.order.imgUrl} alt=""/>
                 </div>
