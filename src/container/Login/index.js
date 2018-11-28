@@ -1,5 +1,4 @@
 import React, {Component} from 'react'
-import {withRouter} from "react-router-dom"
 import './style.scss'
 import {authLogin} from "../../api"
 import {setItem} from "../../utils/LocalStorage"
@@ -37,16 +36,12 @@ class Login extends Component {
                 password:this.state.password
             }).then((json)=>{
                 if(json.status){
-
                     setItem("username",this.state.username);
-                    setItem("token",json.token);
-
+                    setItem("password",this.state.password);
                     this.setUserinfo(this.state.username);
+                    setItem("islogin",true);
                     this.isLogin();
-
-                    this.props.history.push("/");
-                    alert("登录成功")
-
+                    history.back()
                 }else{
                     alert("用户名密码错误请重新填写")
                 }
@@ -76,4 +71,4 @@ class Login extends Component {
     }
 }
 
-export default withRouter(Login)
+export default Login

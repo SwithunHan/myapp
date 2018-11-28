@@ -3,9 +3,11 @@ import {getItem} from "../utils/LocalStorage";
 
 class loginStore {
 
-    @observable isLogin = getItem("islogin");
+    @observable isLogin = getItem("islogin") || false;
 
-    @observable username = getItem("username");
+    @observable username = getItem("username") || "";
+
+    @observable token = getItem("token") || "";
 
     @action.bound login(){
         this.isLogin = true;
@@ -15,6 +17,9 @@ class loginStore {
     }
     @action.bound setUserinfo(val){
         this.username = val
+    }
+    @action.bound setToken(val){
+        this.token = val;
     }
 
 }
