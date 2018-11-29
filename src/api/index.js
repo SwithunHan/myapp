@@ -4,7 +4,7 @@ const host = "http://127.0.0.1:8000";
 //首页头条数据
 export async function getdframeinfo() {
     try {
-        const res = await get(`${host}/api/dframes`);
+        const res = await get(`/api/dframes`);
         return await res.json();
     } catch (e) {
         console.log(e);
@@ -13,7 +13,7 @@ export async function getdframeinfo() {
 //首页菜单列表
 export async function getbannerlist() {
     try {
-        const res = await get(`${host}/api/menus`);
+        const res = await get(`/api/menus`);
         return await res.json();
     } catch (e) {
         console.log(e);
@@ -22,7 +22,7 @@ export async function getbannerlist() {
 //首页轮播数据
 export async function getbannerimg() {
     try {
-        const res = await get(`${host}/api/swipers`);
+        const res = await get(`/api/swipers`);
         return await res.json();
     } catch (e) {
         console.log(e);
@@ -31,7 +31,7 @@ export async function getbannerimg() {
 // 验证登录
 export async function authLogin(userinfo) {
     try {
-        const res = await fetch(`${host}/api/login`,{
+        const res = await fetch(`/api/login`,{
             method: 'POST',
             mode: 'cors',
             headers: {
@@ -47,7 +47,7 @@ export async function authLogin(userinfo) {
 //获取商品列表数据
 export async function getOrderList() {
     try {
-        const res = await fetch(`${host}/api/orders`);
+        const res = await get(`/api/orders`);
         return await res.json();
     } catch (e) {
         console.log(e);

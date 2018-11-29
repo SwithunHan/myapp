@@ -3,12 +3,13 @@ import Order from "./Orders";
 import "./style.scss"
 import {getOrderList} from "../../api"
 import {observer} from "mobx-react"
+
 @observer
 class OrderList extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            goodsList:[]
+            goodsList: []
         }
     }
 
@@ -17,21 +18,25 @@ class OrderList extends Component {
             <div className='OrderList'>
                 <h1>订单列表</h1>
                 {
-                    this.state.goodsList.map((order)=>{
+                    this.state.goodsList.length > 0 ? this.state.goodsList.map((order) => {
                         return <Order key={order.id} order={order} className={'order-item'}/>
-                    })
+                    }) : null
                 }
             </div>
         )
     }
-    componentWillMount(){
+
+    componentWillMount() {
         try {
-            getOrderList().then((goodsList)=>{
-                this.setState({
-                    goodsList
-                })
+            getOrderList().then((goodsList) => {
+                if(goodsList){
+                    this.setState({
+                        goodsList
+                    })
+                }
+
             })
-        }catch (e) {
+        } catch (e) {
             console.log(e);
         }
     }

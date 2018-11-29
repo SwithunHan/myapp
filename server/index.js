@@ -8,12 +8,29 @@ const dframes = require("./Home/dframes");
 const orders = require("./order/orders");
 const koaBody = require('koa-body');
 const jwt = require('jsonwebtoken');
-const util = require("util");
+const koaJwt = require('koa-jwt')
 
-const verify = util.promisify(jwt.verify);
-const verifyJWT = (token, key) => {
-    return verify(token.split(' ')[1], key)
-}
+const jwtSecret = "my_token";
+
+app.use((ctx, next) => {
+    return next().catch((err) => {
+        if (err.status === 401) {
+            ctx.status = 401;
+            ctx.body = {
+                ok: false,
+                msg: err.originalError ? err.originalError.message : err.message
+            }
+        } else {
+            throw err;
+        }
+    });
+});
+
+//设置不需要验证的路由
+app.use(koaJwt({secret: jwtSecret}).unless({
+    path: [/^\/api\/swiper/, /^\/api\/menus/, /^\/api\/dframes/, /^\/api\/login/]
+}));
+
 // 使用ctx.body解析中间件
 app.use(koaBody());
 
@@ -30,16 +47,17 @@ app.use(route.get("/api/dframes", (ctx) => {
     ctx.body = dframes;
 }));
 app.use(route.get("/api/orders", (ctx) => {
+    console.log(ctx);
     ctx.body = orders;
 }));
+
 app.use(route.post("/api/login", (ctx) => {
     const {username, password} = ctx.request.body;
-    console.log(ctx.request.body);
     if (username === "han" && password === "123456") {
         const token = jwt.sign({
             name: username,
             _id: 1
-        }, 'my_token', {expiresIn: '2h'});
+        }, 'my_token');
         ctx.body = {
             mes: "success",
             status: true,
@@ -50,11 +68,11 @@ app.use(route.post("/api/login", (ctx) => {
         ctx.body = {
             mes: "fail",
             status: false,
-            token: null
         }
     }
 }));
+
 app.use(route.get("/api/person/info", (ctx) => {
 
-}))
+}));
 app.listen(8000);

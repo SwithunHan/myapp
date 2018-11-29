@@ -4,3 +4,6 @@ export function getItem (key) {
 export function setItem (key,val) {
     return localStorage.setItem(key,val);
 }
+export function removeItem(key) {
+    return localStorage.removeItem(key)
+}

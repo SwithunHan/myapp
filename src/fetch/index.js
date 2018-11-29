@@ -1,10 +1,8 @@
 /**
  * 封装 fetch
  */
-import { createBrowserHistory } from 'history';
-
-const history = createBrowserHistory();
-export default function request (method, url, body) {
+import {history}from "../history"
+export default function request(method, url, body) {
     method = method.toUpperCase();
     if (method === 'GET') {
         // fetch的GET不允许有body，参数只能放在url中
@@ -12,28 +10,24 @@ export default function request (method, url, body) {
     } else {
         body = body && JSON.stringify(body);
     }
-
     return fetch(url, {
         method,
         headers: {
             'Content-Type': 'application/json',
             'Accept': 'application/json',
-            'Access-Token': localStorage.getItem('atoken') || '' // 从sessionStorage中获取access token
+            'Authorization': ('Bearer ' + localStorage.getItem('token')) || '' // 从localStorageStorage中获取access token
         },
         body
+    }).then((res) => {
+        if (res.status === 401) {
+            history.replace('/login');
+            localStorage.removeItem("token");
+            localStorage.removeItem("islogin");
+            localStorage.removeItem("username");
+            return Promise.reject('Unauthorized.');
+        }
+        return res;
     })
-        .then((res) => {
-            if (res.status === 401) {
-                history.push('/login');
-                return Promise.reject('Unauthorized.');
-            } else {
-                const token = res.headers.get('token');
-                if (token) {
-                    localStorage.setItem('token', token);
-                }
-                return res.json();
-            }
-        });
 }
 
 // GET 请求

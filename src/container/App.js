@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
-import {BrowserRouter as Router, Route, Switch} from "react-router-dom";
+import {Router, Route, Switch} from "react-router-dom";
+import { history } from '../history';
 import {library} from '@fortawesome/fontawesome-svg-core'
 import {faStroopwafel} from '@fortawesome/free-solid-svg-icons'
 import Home from "./Home";
@@ -10,7 +11,7 @@ import OrderList from "./OrdersList";
 import CheckLogin from "../components/Hoc/CheckLogin"
 import OrderDes from "./OrderDes";
 import {inject, observer} from "mobx-react"
-import {getItem} from "../utils/LocalStorage";
+
 
 library.add(faStroopwafel);
 
@@ -24,11 +25,11 @@ class App extends Component {
 
     render() {
         return (
-            <Router>
+            <Router history={history}>
                 <Switch>
                     <Route exact path="/" component={Home}/>
                     <Route path="/login" component={Login}/>
-                    <CheckLogin path="/person" component={Person} isLogin={getItem("islogin")}/>
+                    <CheckLogin path="/person" component={Person} isLogin={this.props.loginStore.isLogin}/>
                     <Route path="/orders" component={OrderList}/>
                     <Route path="/order/:id" component={OrderDes}/>
                     <Route path="*" component={NotFound}/>

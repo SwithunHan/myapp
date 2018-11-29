@@ -406,5 +406,5 @@ module.exports = {
     },
     // Turn off performance processing because we utilize
     // our own hints via the FileSizeReporter
-    performance: false,
+    performance: false
 };
