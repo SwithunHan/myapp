@@ -1,4 +1,4 @@
-import {observable, action} from "mobx"
+import {observable, action,computed} from "mobx"
 import {getItem} from "../utils/LocalStorage";
 
 class loginStore {
@@ -8,6 +8,8 @@ class loginStore {
     @observable username = getItem("username") || "";
 
     @observable token = getItem("token") || "";
+
+    @observable count = 0;
 
     @action.bound login(){
         this.isLogin = true;
@@ -20,6 +22,12 @@ class loginStore {
     }
     @action.bound setToken(val){
         this.token = val;
+    }
+    @action.bound setCount(){
+        this.count = (this.count) + 1;
+    }
+    @computed get getCount(){
+        return this.count * this.count;
     }
 
 }

@@ -1,6 +1,6 @@
 const Koa = require('koa');
 const app = new Koa();
-const route = require('koa-route');
+const Router = require('koa-router');
 const cors = require('koa2-cors');
 const menus = require("./Home/menus");
 const swipers = require("./Home/swipers");
@@ -8,8 +8,9 @@ const dframes = require("./Home/dframes");
 const orders = require("./order/orders");
 const koaBody = require('koa-body');
 const jwt = require('jsonwebtoken');
-const koaJwt = require('koa-jwt')
+const koaJwt = require('koa-jwt');
 
+const router = new Router();
 const jwtSecret = "my_token";
 
 app.use((ctx, next) => {
@@ -37,21 +38,20 @@ app.use(koaBody());
 //设置跨域
 app.use(cors());
 
-app.use(route.get("/api/swipers", (ctx) => {
+router.get("/api/swipers", (ctx) => {
     ctx.body = swipers;
-}));
-app.use(route.get("/api/menus", (ctx) => {
+});
+router.get("/api/menus", (ctx) => {
     ctx.body = menus;
-}));
-app.use(route.get("/api/dframes", (ctx) => {
+});
+router.get("/api/dframes", (ctx) => {
     ctx.body = dframes;
-}));
-app.use(route.get("/api/orders", (ctx) => {
-    console.log(ctx);
+});
+router.get("/api/orders", (ctx) => {
     ctx.body = orders;
-}));
+});
 
-app.use(route.post("/api/login", (ctx) => {
+router.post("/api/login", (ctx) => {
     const {username, password} = ctx.request.body;
     if (username === "han" && password === "123456") {
         const token = jwt.sign({
@@ -70,9 +70,12 @@ app.use(route.post("/api/login", (ctx) => {
             status: false,
         }
     }
-}));
+});
 
-app.use(route.get("/api/person/info", (ctx) => {
+router.get("/api/person/info", (ctx) => {
 
-}));
+});
+
+app.use(router.routes())
+app.use(router.allowedMethods());
 app.listen(8000);
