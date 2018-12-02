@@ -1,6 +1,5 @@
 import React, {Component} from 'react';
-import {Router, Route, Switch} from "react-router-dom";
-import { history } from '../history';
+import {Route, Switch, withRouter} from "react-router-dom";
 import {library} from '@fortawesome/fontawesome-svg-core'
 import {faStroopwafel} from '@fortawesome/free-solid-svg-icons'
 import Home from "./Home";
@@ -19,25 +18,39 @@ library.add(faStroopwafel);
 @observer
 class App extends Component {
     constructor(props) {
+
         super(props);
-        this.state = {}
+        this.props.history.listen((location) => {
+            console.log(location.pathname)
+            switch (location.pathname) {
+                case '/':
+                    document.title = "淘宝网触屏版";
+                    break;
+                case '/person':
+                    document.title = "我的淘宝";
+                    break;
+                case '/orders':
+                    document.title = "订单列表";
+                    break;
+                default:
+                    break;
+            }
+        })
     }
 
     render() {
         return (
-            <Router history={history}>
-                <Switch>
-                    <Route exact path="/" component={Home}/>
-                    <Route path="/login" component={Login}/>
-                    <CheckLogin path="/person" component={Person} isLogin={this.props.loginStore.isLogin}/>
-                    <Route path="/orders" component={OrderList}/>
-                    <Route path="/order/:id" component={OrderDes}/>
-                    <Route path="*" component={NotFound}/>
-                </Switch>
-            </Router>
+            <Switch>
+                <Route exact path="/" component={Home}/>
+                <Route path="/login" component={Login}/>
+                <CheckLogin path="/person" component={Person} isLogin={this.props.loginStore.isLogin}/>
+                <CheckLogin path="/orders" component={OrderList} isLogin={this.props.loginStore.isLogin}/>
+                <Route path="/odetail/:id" component={OrderDes}/>
+                <Route component={NotFound}/>
+            </Switch>
         );
     }
 
 }
 
-export default App;
+export default withRouter(App);

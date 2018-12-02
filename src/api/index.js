@@ -45,9 +45,9 @@ export async function authLogin(userinfo) {
     }
 }
 //获取商品列表数据
-export async function getOrderList() {
+export async function getOrderList(url) {
     try {
-        const res = await get(`/api/orders`);
+        const res = await get(`${url}`);
         return await res.json();
     } catch (e) {
         console.log(e);

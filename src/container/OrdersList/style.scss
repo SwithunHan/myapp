@@ -2,11 +2,27 @@
   @return $px / 375px * 10rem;
 }
 .OrderList{
-  h1{
-    font-size: px2rem(20px);
-    text-align: center;
-    padding: px2rem(10px) ;
-    background: #ff852a;
-    color: #fff;
+  .tab-bar{
+    ul{
+      display: flex;
+      background: #fcfcfc;
+    }
+    li{
+      flex: 1;
+      height: px2rem(40px);
+      line-height: px2rem(40px);
+      text-align: center;
+      font-size: px2rem(14px);
+      &.active{
+        border-bottom: 2px solid #ff5000;
+        color: #ff5000;
+        a{
+          color: #ff5000;
+        }
+      }
+      a{
+        color: #333;
+      }
+    }
   }
 }

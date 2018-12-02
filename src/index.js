@@ -3,13 +3,18 @@ import ReactDOM from 'react-dom';
 import App from "./container/App";
 import "amfe-flexible"
 import 'reset-css'
+import './static/css/main.scss'
 import loginStore from './stores/loginStore'
 import {Provider} from "mobx-react";
+import {Router} from "react-router-dom";
+import {history} from "./history";
 
 const stores = {loginStore};
 ReactDOM.render(
     <Provider {...stores}>
-        <App/>
+        <Router history={history}>
+            <App/>
+        </Router>
     </Provider>,
     document.getElementById('root')
 );

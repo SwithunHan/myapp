@@ -46,7 +46,7 @@ class Login extends Component {
 
                     this.setUserinfo(this.state.username);
                     this.isLogin();
-                    // this.setToken(json.token);
+                    this.setToken(json.token);
                     this.props.history.push("/")
                 }else{
                     alert("用户名密码错误请重新填写")
@@ -57,9 +57,14 @@ class Login extends Component {
         }
 
     };
+    submit =(e)=>{
+        if(e.keyCode === 13){
+            this.login()
+        }
+    }
     render() {
         return (
-            <div className='Login'>
+            <div className='Login' onKeyDown={this.submit}>
                 <div className="logo"/>
                 <div className="am-list">
                     <div className="username">

@@ -47,10 +47,21 @@ router.get("/api/menus", (ctx) => {
 router.get("/api/dframes", (ctx) => {
     ctx.body = dframes;
 });
-router.get("/api/orders", (ctx) => {
+router.get("/api/orders/all", (ctx) => {
     ctx.body = orders;
 });
-
+router.get("/api/orders/payment", (ctx) => {
+    ctx.body = {};
+});
+router.get("/api/orders/ship", (ctx) => {
+    ctx.body = {};
+});
+router.get("/api/orders/reward", (ctx) => {
+    ctx.body = {};
+});
+router.get("/api/orders/evaluation", (ctx) => {
+    ctx.body = {};
+});
 router.post("/api/login", (ctx) => {
     const {username, password} = ctx.request.body;
     if (username === "han" && password === "123456") {

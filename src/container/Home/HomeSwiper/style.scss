@@ -1,8 +1,10 @@
-
+@function px2rem($px){
+  @return $px / 375px * 10rem;
+}
 .swiper-slide {
   position: relative;
-  height: 120px;
-  margin-top: 0.98667rem;
+  height: px2rem(120px);
+  margin-top: 37px;
   background-repeat: no-repeat;
   background-size: 100%;
   & a{

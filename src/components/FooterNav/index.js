@@ -23,7 +23,7 @@ class FooterNav extends Component {
                     id: 1,
                     text: "首页",
                     icon: faHome,
-                    url: "/home"
+                    url: "/"
                 },
                 {
                     id: 2,
