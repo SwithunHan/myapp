@@ -1,7 +1,7 @@
 import React, {Component} from 'react'
 import {inject, observer} from "mobx-react"
-import {removeItem} from "../../utils/LocalStorage";
 import {withRouter, Switch, Link, Route} from "react-router-dom";
+import Head from "./Head";
 
 
 const BaseInfo = () => {
@@ -18,19 +18,12 @@ class Person extends Component {
         this.state = {}
     }
 
-    logout = () => {
-        removeItem("islogin");
-        removeItem("username");
-        removeItem("token");
-        this.props.loginStore.logout();
-        this.props.history.push("/");
-    };
+
 
     render() {
         return (
             <div className='Person'>
-                <h1>{"username：" + this.props.loginStore.username}</h1>
-                <button onClick={this.logout}>退出登录</button>
+                <Head/>
                 <ul>
                     <li><Link to="/person">基本信息</Link></li>
                     <li><Link to="/person/address">收货地址</Link></li>

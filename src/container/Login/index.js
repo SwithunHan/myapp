@@ -40,11 +40,11 @@ class Login extends Component {
                 password:this.state.password
             }).then((json)=>{
                 if(json.status){
-                    setItem("username",this.state.username);
+                    setItem("userinfo",JSON.stringify(json.userinfo));
                     setItem("token",json.token);
                     setItem("islogin",true);
 
-                    this.setUserinfo(this.state.username);
+                    this.setUserinfo(json.userinfo);
                     this.isLogin();
                     this.setToken(json.token);
                     this.props.history.push("/")

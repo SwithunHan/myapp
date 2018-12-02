@@ -1,0 +1,30 @@
+@function px2rem($px) {
+  @return $px / 375px * 10rem;
+}
+.Head{
+  display: flex;
+  justify-content: space-between;
+  margin-top: -0.11rem;
+  padding: px2rem(40px) px2rem(13px) px2rem(20px) px2rem(18px);
+  background-color: #FF5000;
+  background-image: -webkit-linear-gradient(left, #FD9126, #FF5000);
+  background-image: linear-gradient(to right, #FD9126, #FF5000);
+  color: #ffffff;
+  .user-img{
+    width: px2rem(50px);
+    height: px2rem(50px);
+    border: 1px solid #ffffff;
+    border-radius: 100%;
+    overflow: hidden;
+    & img{
+      width: 100%;
+      height: 100%;
+    }
+  }
+  .username{
+    flex: 1;
+    margin-left: px2rem(12px);
+    font: px2rem(20px);
+    line-height: px2rem(24px);
+  }
+}

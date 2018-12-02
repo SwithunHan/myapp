@@ -15,7 +15,7 @@ export default function request(method, url, body) {
         headers: {
             'Content-Type': 'application/json',
             'Accept': 'application/json',
-            'Authorization': ('Bearer ' + localStorage.getItem('token')) || '' // 从localStorageStorage中获取access token
+            'Authorization': ('Bearer ' + localStorage.getItem('token')) || '' // 从localStorage中获取access token
         },
         body
     }).then((res) => {
@@ -23,7 +23,7 @@ export default function request(method, url, body) {
             history.replace('/login');
             localStorage.removeItem("token");
             localStorage.removeItem("islogin");
-            localStorage.removeItem("username");
+            localStorage.removeItem("userinfo");
             return Promise.reject('Unauthorized.');
         }
         return res;

@@ -72,7 +72,11 @@ router.post("/api/login", (ctx) => {
         ctx.body = {
             mes: "success",
             status: true,
-            token: token
+            token: token,
+            userinfo:{
+                username:"han",
+                headImg:"http://gw.alicdn.com/sns_logo/i4/131040155068500649/TB21HmAiVXXXXatXpXXXXXXXXXX_!!0-mytaobao.jpg_.webp"
+            }
         }
 
     } else {

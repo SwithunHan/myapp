@@ -21,7 +21,6 @@ class App extends Component {
 
         super(props);
         this.props.history.listen((location) => {
-            console.log(location.pathname)
             switch (location.pathname) {
                 case '/':
                     document.title = "淘宝网触屏版";

@@ -5,7 +5,7 @@ class loginStore {
 
     @observable isLogin = getItem("islogin") || false;
 
-    @observable username = getItem("username") || "";
+    @observable userinfo = JSON.parse(getItem("userinfo")) || "";
 
     @observable token = getItem("token") || "";
 
@@ -18,7 +18,7 @@ class loginStore {
         this.isLogin = false;
     }
     @action.bound setUserinfo(val){
-        this.username = val
+        this.userinfo = val
     }
     @action.bound setToken(val){
         this.token = val;
