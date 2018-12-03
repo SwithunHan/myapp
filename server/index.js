@@ -91,6 +91,6 @@ router.get("/api/person/info", (ctx) => {
 
 });
 
-app.use(router.routes())
+app.use(router.routes());
 app.use(router.allowedMethods());
 app.listen(8000);

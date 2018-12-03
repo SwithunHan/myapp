@@ -2,10 +2,19 @@
   @return $px / 375px * 10rem;
 }
 .OrderList{
+  .order-info{
+    margin-top: px2rem(40px);
+    margin-bottom: px2rem(50px);
+
+  }
   .tab-bar{
     ul{
       display: flex;
+      width: 100%;
       background: #fcfcfc;
+      position: fixed;
+      top: 0;
+      left: 0;
     }
     li{
       flex: 1;
@@ -16,12 +25,6 @@
       &.active{
         border-bottom: 2px solid #ff5000;
         color: #ff5000;
-        a{
-          color: #ff5000;
-        }
-      }
-      a{
-        color: #333;
       }
     }
   }

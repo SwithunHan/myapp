@@ -24,4 +24,9 @@ module.exports = [
         imgUrl:"//gw.alicdn.com/tfscom/tuitui/O1CN012ATTnYIM4mv3aPx_!!1830208204-0-beehive-scenes.jpg_230x10000Q75.jpg_.webp",
         text:"萌妹如何入手微单，看懂这些就够了"
     },
+    {
+        id:6,
+        imgUrl:"//gw.alicdn.com/imgextra/i2/1029227455/TB2PXVBhr_I8KJjy1XaXXbsxpXa_!!1029227455-0-beehive-scenes.jpg_300x10000Q75.jpg_.webp",
+        text:"优质宽松版型，显瘦迷人随意百搭"
+    }
 ];

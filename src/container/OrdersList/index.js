@@ -73,7 +73,7 @@ class OrderList extends Component {
                         </li>
                     </ul>
                 </nav>
-                <div>
+                <div className={"order-info"}>
                     {
                         this.state.goodsList.length > 0 ? this.state.goodsList.map((order) => {
                             return <Order key={order.id} order={order} className={'order-item'}/>

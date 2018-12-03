@@ -2,6 +2,7 @@ import React, {Component} from 'react'
 import {inject, observer} from "mobx-react"
 import {withRouter, Switch, Link, Route} from "react-router-dom";
 import Head from "./Head";
+import FooterNav from "../../components/FooterNav";
 
 
 const BaseInfo = () => {
@@ -32,6 +33,7 @@ class Person extends Component {
                     <Route exact path="/person" component={BaseInfo}/>
                     <Route path="/person/address" component={Address}/>
                 </Switch>
+                <FooterNav/>
             </div>
         )
     }
