@@ -2,7 +2,7 @@ import React, {Component} from 'react'
 import Swiper from 'swiper/dist/js/swiper.js'
 import 'swiper/dist/css/swiper.min.css'
 import './style.scss'
-import {getbannerimg} from "../../../api/index";
+import {getBannerImg} from "../../../api/index";
 import { Facebook } from 'react-content-loader'
 
 const MyFacebookLoader = () => <Facebook />
@@ -37,7 +37,7 @@ class HomeSwiper extends Component {
     }
 
     componentDidMount() {
-        getbannerimg().then((bannerImg) => {
+        getBannerImg().then((bannerImg) => {
             this.setState({
                 bannerImg
             })

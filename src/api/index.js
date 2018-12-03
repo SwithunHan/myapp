@@ -2,7 +2,7 @@ import {get,post} from '../fetch'
 const host = "http://127.0.0.1:8000";
 
 //首页头条数据
-export async function getdframeinfo() {
+export async function getDframeInfo() {
     try {
         const res = await get(`/api/dframes`);
         return await res.json();
@@ -11,7 +11,7 @@ export async function getdframeinfo() {
     }
 }
 //首页菜单列表
-export async function getbannerlist() {
+export async function getBannerList() {
     try {
         const res = await get(`/api/menus`);
         return await res.json();
@@ -20,7 +20,7 @@ export async function getbannerlist() {
     }
 }
 //首页轮播数据
-export async function getbannerimg() {
+export async function getBannerImg() {
     try {
         const res = await get(`/api/swipers`);
         return await res.json();
@@ -48,6 +48,15 @@ export async function authLogin(userinfo) {
 export async function getOrderList(url) {
     try {
         const res = await get(`${url}`);
+        return await res.json();
+    } catch (e) {
+        console.log(e);
+    }
+}
+
+export async function getLinear() {
+    try {
+        const res = await get(`/api/linear`);
         return await res.json();
     } catch (e) {
         console.log(e);

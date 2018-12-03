@@ -1,6 +1,6 @@
 import React, {Component} from 'react'
 import "./style.scss"
-import {getbannerlist} from "../../../api";
+import {getBannerList} from "../../../api";
 
 class HomeWrapper extends Component {
     constructor(props) {
@@ -37,7 +37,7 @@ class HomeWrapper extends Component {
     }
 
     componentWillMount() {
-        getbannerlist().then((bannerList)=>{
+        getBannerList().then((bannerList)=>{
             this.setState({
                 bannerList
             })

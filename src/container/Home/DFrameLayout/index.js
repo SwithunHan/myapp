@@ -2,7 +2,7 @@ import React, {Component} from 'react'
 // import Swiper from 'swiper/dist/js/swiper.js'
 import 'swiper/dist/css/swiper.min.css'
 import 'swiper/dist/css/swiper.min.css'
-import {getdframeinfo} from '../../../api'
+import {getDframeInfo} from '../../../api'
 import './style.scss'
 
 class DFrameLayout extends Component {
@@ -50,7 +50,7 @@ class DFrameLayout extends Component {
 
     componentDidMount() {
         try {
-            getdframeinfo().then((dframeList) => {
+            getDframeInfo().then((dframeList) => {
                 this.setState({
                     dframeList
                 })
