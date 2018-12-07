@@ -30,9 +30,7 @@ class DLinearLayout extends Component {
     render() {
         if (this.state.linear) {
             return (
-                <div className='DLinearLayout'>
                     <MyLoader/>
-                </div>
             )
         } else {
             return (
@@ -44,7 +42,7 @@ class DLinearLayout extends Component {
 
     }
 
-    // componentWillMount() {
+    // componentDidMount() {
     //     getLinear().then((linear) => {
     //         this.setState({
     //             linear
