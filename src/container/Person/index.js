@@ -1,6 +1,6 @@
 import React, {Component} from 'react'
 import {inject, observer} from "mobx-react"
-import {withRouter, Switch, Link, Route} from "react-router-dom";
+import { Switch, Link, Route} from "react-router-dom";
 import Head from "./Head";
 import FooterNav from "../../components/FooterNav";
 
@@ -39,4 +39,4 @@ class Person extends Component {
     }
 }
 
-export default withRouter(Person)
+export default Person
