@@ -25,7 +25,7 @@ class HomeSwiper extends Component {
                             {this.state.bannerImg.map((item) => (
                                 <div key={item.id} className="swiper-slide"
                                      style={{backgroundImage: `url(${item.src})`}}>
-                                    <a href={item.href}/>
+                                    <a href={item.href}> </a>
                                 </div>))}
                         </div>
                         <div className='swiper-pagination'/>

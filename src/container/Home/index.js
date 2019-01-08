@@ -50,9 +50,9 @@ class Home extends Component {
                 <HomeWrapper/>
                 <DFrameLayout/>
                 <DLinearLayout/>
-                <FooterNav/>
                 <IndexGoods/>
                 <div>{this.state.isLoadingMore?"加载更多":"正在加载。。。"}</div>
+                <FooterNav/>
             </div>
         )
     }

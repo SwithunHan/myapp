@@ -31,6 +31,9 @@ class App extends Component {
                 case '/orders':
                     document.title = "订单列表";
                     break;
+                case '/odetail':
+                    document.title = "订单详情";
+                    break;
                 default:
                     break;
             }
@@ -45,6 +48,7 @@ class App extends Component {
                 <CheckLogin path="/person" component={Person} isLogin={this.props.loginStore.isLogin}/>
                 <CheckLogin path="/orders" component={OrderList} isLogin={this.props.loginStore.isLogin}/>
                 <Route path="/odetail/:id" component={OrderDes}/>
+                <Route path="/goods/"/>
                 <Route component={NotFound}/>
             </Switch>
         );

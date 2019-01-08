@@ -1,5 +1,6 @@
 import React, {Component} from 'react'
 import "./style.scss"
+import {Link} from "react-router-dom";
 class IndexGoods extends Component {
     constructor(props) {
         super(props);
@@ -19,10 +20,10 @@ class IndexGoods extends Component {
             <div className='IndexGoods'>
                 {
                     this.state.indexGoodsList.map((indexGoods)=>(
-                        <div className={"indexGoods"} key={indexGoods.id}>
+                        <Link to={"/"} className={"indexGoods"} key={indexGoods.id}>
                             <img src={indexGoods.imgUrl} alt=""/>
                             <h1>{indexGoods.title}</h1>
-                        </div>
+                        </Link>
                     ))
                 }
             </div>
