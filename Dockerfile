@@ -1,7 +1,5 @@
-FROM node:8
+FROM node:10
 
 WORKDIR /usr/src/app
 
-EXPOSE 8080
-
-CMD [ "npm", "start" ]
+EXPOSE 3000 8000
