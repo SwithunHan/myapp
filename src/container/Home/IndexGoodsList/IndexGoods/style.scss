@@ -1,0 +1,10 @@
+@function px2rem($px){
+  @return $px / 375px * 10rem;
+}
+.IndexGoods{
+  display: block;
+  width: px2rem(184.5px);
+  img{
+    width: 100%;
+  }
+}

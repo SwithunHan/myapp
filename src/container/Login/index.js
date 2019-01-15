@@ -61,7 +61,7 @@ class Login extends Component {
         if(e.keyCode === 13){
             this.login()
         }
-    }
+    };
     render() {
         return (
             <div className='Login' onKeyDown={this.submit}>

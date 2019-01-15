@@ -1,0 +1,8 @@
+@function px2rem($px){
+  @return $px / 375px * 10rem;
+}
+.IndexGoodsList{
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
