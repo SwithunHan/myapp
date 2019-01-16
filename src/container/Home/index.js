@@ -84,7 +84,7 @@ class Home extends Component {
             })
         }else{
             this.setState({
-                isEnd:false
+                isLoadingMore:false
             })
         }
 
